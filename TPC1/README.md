@@ -15,7 +15,7 @@ Lista de Resultados:
 
 Resolução do Maze- 
 
-[Código e resultado do Barco (Turtle)- (ver todas as imagens)](Resultados.md)
+[Código e resultado do Barco (Turtle)- (ver todas as imagens)](../Resultados.md)
 
 
 
