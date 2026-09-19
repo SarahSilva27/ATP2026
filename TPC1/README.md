@@ -1,7 +1,7 @@
 Título: Resolução de Desafios no Blockly Games: Maze (10) e Desenho de um Barco no Turtle 
 
 Autor: Sarah Dos Santos Martins e Silva, 113606
-‹img scr="Imagem.jpeg" width="300"›
+‹img scr="Resolução/Imagem.jpeg" width="200"›
 
 Resumo: 
 
