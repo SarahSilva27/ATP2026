@@ -13,7 +13,7 @@ A ilustração no Turtle exigiu o controlo das condições (pen up/down, transi�
 
 Lista de Resultados: 
 
-Resolução do Maze- 
+[Resolução do Maze- (ver a imagem)](../ResultadosMAZE.md)
 
 [Código e resultado do Barco (Turtle)- (ver todas as imagens)](../Resultados.md)
 
