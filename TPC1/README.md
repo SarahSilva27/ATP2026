@@ -2,7 +2,7 @@ Título: Resolução de Desafios no Blockly Games: Maze (10) e Desenho de um Bar
 
 Autor: Sarah Dos Santos Martins e Silva, 113606
 
-‹img src="Resolução/Imagem.jpeg" width="200" /›
+![imagem](Imagem.jpeg)
 
 Resumo: 
 
