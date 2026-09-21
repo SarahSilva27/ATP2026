@@ -16,7 +16,7 @@
 
 [Resolução do Maze- (ver a imagem)](../ResultadosMAZE.md)
 
-[Código e resultado do Barco (Turtle)- (ver todas as imagens)](../Resultados.md)
+[Código e resultado do Barco (Turtle)- (ver todas as imagens)](../ResultadosTURTLE.md)
 
 
 
