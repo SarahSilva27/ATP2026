@@ -1,5 +1,5 @@
-**Título- Criação de um jogo "Adivinha o número!"
+**Título**- Criação de um jogo "Adivinha o número!"
 
-**Autor- Sarah Dos Santos Martins e Silva/ 113606
-![imagem](TPC1/Resolução/Imagem.jpeg)
+**Autor**- Sarah Dos Santos Martins e Silva/ 113606
+![imagem](Imagem.cópia.jpeg)
 
