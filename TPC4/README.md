@@ -16,4 +16,4 @@ Adicionalmente, a aplicação oferece um conjunto de operações estatísticas e
 
 **Resolução**-
 
-[Aplicação para Manipulação de Listas de Inteiros](Aplicação_para_Manipulação_de_Listas_de_Inteiros)
+[Aplicação para Manipulação de Listas de Inteiros](Aplicação_para_manipulação_de_listas_de_inteiros)
