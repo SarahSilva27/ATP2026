@@ -2,7 +2,9 @@
 
 **Autor**- Sarah dos Santos Martins e Silva/ 113606
 
-**Foto**- ![imagem](Imagem-copia.jpeg)
+**Foto**- 
+
+![imagem](Imagem-copia.jpeg)
 
 **Resumo**-
 
