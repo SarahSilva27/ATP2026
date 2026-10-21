@@ -1,5 +1,5 @@
-import random
 
+import random
 
 def mostrar_menu():
     print("\n--- Menu Principal ---")  #\n - enter (linha nova)
@@ -32,10 +32,17 @@ def inserir_aluno_na_turma(turmas):
 
     if nome_turma in turmas:
         nome_aluno = input("Introduz o nome do aluno: ")
-        id_aluno = input("Introduz o ID do aluno: ") 
+        id_aluno = input("Introduz o ID do aluno: ")  
+        
+        # Pedir as notas para preencher a lista [notaTPC, notaProj, notaTeste]
+        nota_tpc = float(input("Introduz a nota do TPC: "))
+        nota_proj = float(input("Introduz a nota do Projeto: "))
+        nota_teste = float(input("Introduz a nota do Teste: "))
                 
-        aluno_info = {"id": id_aluno, "nome": nome_aluno}
-        turmas[nome_turma].append(aluno_info)
+        # Estrutura exigida: aluno = (nome, id, [notaTPC, notaProj, notaTeste])
+        aluno = (nome_aluno, id_aluno, [nota_tpc, nota_proj, nota_teste])
+        
+        turmas[nome_turma].append(aluno)
         print(f" Aluno '{nome_aluno}' adicionado com sucesso à turma '{nome_turma}' com o ID **{id_aluno}**!")
     else:
         print(" Erro: Essa turma não existe.")
@@ -56,7 +63,8 @@ def listar_turma(turmas):
             print("Esta turma ainda não tem alunos.")
        else:
             for i, aluno in enumerate(alunos, start=1):
-                print(f"{i}. {aluno}")
+                nome, id_aluno, notas = aluno
+                print(f"{i}. ID: {id_aluno} | Nome: {nome} | Notas: {notas}")
     else:
         print("Erro: Essa turma não existe.")
 
@@ -69,16 +77,18 @@ def consultar_aluno_por_id(turmas):
 
         for nome_turma in turmas:
             if not encontrado:
-                alunos= turmas[nome_turma]
+                alunos = turmas[nome_turma]
                 for aluno in alunos:
-                   if not encontrado:
-                        if aluno["id"] == id_procurado:
+                    if not encontrado:
+                        nome, id_aluno, notas = aluno
+                        if id_aluno == id_procurado:
                             print(f"\n Aluno encontrado!")
-                            print(f"Nome: {aluno['nome']}")
+                            print(f"Nome: {nome}")
                             print(f"Turma: {nome_turma}")
-                            print(f"ID: {aluno['id']}")
+                            print(f"ID: {id_aluno}")
+                            print(f"Notas: {notas}")
                             encontrado = True
-                        
+                      
         if not encontrado:
             print(f"Erro: Nenhum aluno com o ID '{id_procurado}' foi encontrado.")
 
@@ -92,7 +102,8 @@ def guardar_turmas_ficheiro(turmas):
                 for nome_turma in turmas:
                     alunos = turmas[nome_turma]
                     for aluno in alunos:
-                        f.write(f"{nome_turma};{aluno['id']};{aluno['nome']}\n")
+                        nome, id_aluno, notas = aluno
+                        f.write(f"{nome_turma};{id_aluno};{nome};{notas[0]};{notas[1]};{notas[2]}\n")
             print(f"Dados guardados com sucesso no ficheiro '{nome_ficheiro}'!")
         except Exception as e:
             print(f"Erro ao guardar o ficheiro: {e}")
@@ -106,15 +117,17 @@ def carregar_turmas_ficheiro(turmas):
                 linha = linha.strip() 
                 if linha:
                     partes = linha.split(";") #split-separa (neste caso, ao encontrar ;)
-                    if len(partes) == 3: #para identificar uma linha válida 
-                        nome_turma, id_aluno, nome_aluno = partes
+                    if len(partes) == 6: #para identificar uma linha válida com as 3 notas 
+                        nome_turma, id_aluno, nome_aluno, n_tpc, n_proj, n_teste = partes
                         
                         if nome_turma not in turmas:
                             turmas[nome_turma] = []
                         
-                        aluno_existente = any(a["id"] == id_aluno for a in turmas[nome_turma])
+                        aluno_existente = any(a[1] == id_aluno for a in turmas[nome_turma])
                         if not aluno_existente:
-                            turmas[nome_turma].append({"id": id_aluno, "nome": nome_aluno})
+                            notas = [float(n_tpc), float(n_proj), float(n_teste)]
+                            aluno = (nome_aluno, id_aluno, notas)
+                            turmas[nome_turma].append(aluno)
                                 
         print(f" Turmas carregadas com sucesso a partir de '{nome_ficheiro}'!")
     except FileNotFoundError:
