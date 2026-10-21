@@ -132,11 +132,13 @@ def main():
         elif opcao == "9":
             procurar_elemento(lista)
         elif opcao == "0":
+            print(f"\n A terminar a aplicação.")
+            continuar = False
+        elif opcao == "0":
             print(f"\n A terminar a aplicação. A lista final guardada é: {lista}")
             continuar = False
         else:
             print("Opção inválida! Por favor, escolha um número entre 0 e 9.")
-
 
 if __name__ == "__main__":
     main()
