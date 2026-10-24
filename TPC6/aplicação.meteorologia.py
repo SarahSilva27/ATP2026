@@ -42,10 +42,10 @@ def criar_tabela_meteorologica():
         else:
             print("Por favor, responda apenas com 's' (sim) ou 'n' (não).")
             
-    return tab_meteo  # <-- CORRIGIDO: Devolve a tabela criada
+    return tab_meteo  
 
 def guardaTabMeteo(t):
-    with open("meteorologia.txt", "w", encoding="utf-8") as f: # <-- CORRIGIDO: Nome do ficheiro unificado
+    with open("meteorologia.txt", "w", encoding="utf-8") as f: 
             for registo in t:
                 data, temp_min, temp_max, precipitacao = registo
                 ano, mes, dia = data
@@ -57,7 +57,7 @@ def guardaTabMeteo(t):
 
 def carregar_tabela_ficheiro():
     res = []
-    with open("meteorologia.txt", "r", encoding="utf-8") as f: # <-- CORRIGIDO
+    with open("meteorologia.txt", "r", encoding="utf-8") as f: 
         for linha in f:
             campos = linha.strip().split(",")
             novadata = campos[0].split("|")
@@ -67,7 +67,7 @@ def carregar_tabela_ficheiro():
             tmax = float(campos[2])
             prec = float(campos[3])
             
-            res.append((data, tmin, tmax, prec)) # <-- CORRIGIDO: Sintaxe do tuplo corrigida
+            res.append((data, tmin, tmax, prec)) 
             
     print("Tabela carregada com sucesso do ficheiro!")
     return res
@@ -195,8 +195,7 @@ def grafico_texto_meteorologia(tabMeteo):
         num_barras = int(max(0, precipitacao))
         barra = "#" * num_barras
         
-        print(f"{data_str} | {barra} ({precipitacao} mm)") # <-- CORRIGIDO: Parêntese corrigido
-
+        print(f"{data_str} | {barra} ({precipitacao} mm)") 
     print("\n--- Legenda de Temperaturas (Máx / Mín) ---")
     for registo in tabMeteo:
         data, tmin, tmax, _ = registo
@@ -205,7 +204,7 @@ def grafico_texto_meteorologia(tabMeteo):
         print(f"{data_str} -> Máx: {tmax}ºC | Mín: {tmin}ºC")
 
 def main():
-    tabela = []  # <-- CORRIGIDO: Inicializado como lista em vez de dicionário {}
+    tabela = [] 
     executar = True
 
     while executar:
@@ -213,11 +212,11 @@ def main():
         opcao = input("\nEscolhe uma opção: ")
 
         if opcao == "1":
-           tabela = criar_tabela_meteorologica()  # <-- CORRIGIDO: Guarda o retorno
+           tabela = criar_tabela_meteorologica()  
         elif opcao == "2":
             guardaTabMeteo(tabela)
         elif opcao == "3":
-            tabela = carregar_tabela_ficheiro()   # <-- CORRIGIDO: Guarda o retorno
+            tabela = carregar_tabela_ficheiro()   
         elif opcao == "4":
             imprimir_tab_meteo(tabela)
         elif opcao == "5":
